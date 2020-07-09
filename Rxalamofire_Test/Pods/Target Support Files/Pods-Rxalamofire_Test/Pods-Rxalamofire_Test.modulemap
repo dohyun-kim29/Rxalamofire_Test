@@ -1,0 +1,6 @@
+framework module Pods_Rxalamofire_Test {
+  umbrella header "Pods-Rxalamofire_Test-umbrella.h"
+
+  export *
+  module * { export * }
+}
