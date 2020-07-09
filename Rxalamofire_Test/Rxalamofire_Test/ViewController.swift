@@ -59,7 +59,7 @@ class ViewController: UIViewController {
                                 }
                                 
                                 if let value: Any = response.result.value {
-                                    observer.onNext(value as! String)
+                                    self!.jsonToString(json: value as AnyObject)
                                     
                                 }
                                 
@@ -76,5 +76,16 @@ class ViewController: UIViewController {
         
     
     )}
+    
+    func jsonToString(json: AnyObject){
+        do {
+            let data1 =  try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted)
+            let convertedString = String(data: data1, encoding: String.Encoding.utf8)
+            print(convertedString ?? "defaultvalue")
+        } catch let myJSONError {
+            print(myJSONError)
+        }
+
+    }
 
 }
