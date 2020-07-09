@@ -47,7 +47,7 @@ class ViewController: UIViewController {
                 }
                 for (key, value) in param {
                     multipartFormData.append((value.data(using: .utf8))!, withName: key)
-                }}, to: self.img?.pngData() as! URLConvertible, method: .post, headers: header,
+                }}, to: self.img?.jpegData(compressionQuality: 0.9) as! URLConvertible, method: .post, headers: header,
                     encodingCompletion: { encodingResult in
                         switch encodingResult {
                         case .success(let upload, _, _):
